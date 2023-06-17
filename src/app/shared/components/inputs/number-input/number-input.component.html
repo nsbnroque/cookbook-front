@@ -1,0 +1,13 @@
+<div [formGroup]="formGroup">
+    <mat-form-field class="full-width">
+        <mat-label>{{label}}</mat-label>
+      <input  matInput
+              type="number"
+              [min]="min"
+              [max]="max"
+              [step]="step"
+              [placeholder]="placeholder"
+              [name]="controlName"
+              [formControlName]="controlName">
+    </mat-form-field>
+  </div>

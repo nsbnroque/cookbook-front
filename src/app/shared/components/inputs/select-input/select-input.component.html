@@ -1,0 +1,11 @@
+<div [formGroup]="formGroup">
+    <mat-form-field class="full-width">
+    <mat-label>{{label}}</mat-label>
+      <input >
+              <mat-select matInput
+              [placeholder]="placeholder"
+              [formControlName]="controlName">
+                <mat-option *ngFor="let option of options" [value]="option.Id">{{option.name}}</mat-option>
+              </mat-select>
+    </mat-form-field>
+  </div>
