@@ -35,7 +35,7 @@ export class RegisterUserComponent implements OnInit{
     this.form = this.builder.group({
       name: ['', Validators.required],
       email:['', [Validators.required]],
-      password: ['', [Validators.required, Validators.pattern('^(?=.*\d).{6,15}$')]],
+      password: ['', [Validators.required,  Validators.pattern('^(?=.*\\d).{6,15}$')]],
       confirmPassword: ['', [Validators.required, this.inputValidator.passwordMatchValidator]]
     })
   }

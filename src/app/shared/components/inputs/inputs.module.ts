@@ -27,6 +27,9 @@ import { SelectInputComponent } from './select-input/select-input.component';
   exports: [
     TextInputComponent,
     TextAreaInputComponent,
+    SelectInputComponent,
+    PasswordInputComponent,
+    NumberInputComponent
 
   ]
 })

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RegisterUserComponent } from './register-user/register-user.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/app/shared/material/material.module';
+import { InputsModule } from 'src/app/shared/components/inputs/inputs.module';
 
 
 
@@ -14,7 +15,8 @@ import { MaterialModule } from 'src/app/shared/material/material.module';
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    MaterialModule
+    MaterialModule,
+    InputsModule
   ]
 })
 export class UserModule { }

@@ -1,1 +1,21 @@
 
+<div class="form__card">
+    <mat-card>
+    <mat-toolbar class="form__card__title">Register</mat-toolbar>
+      <mat-card-content class="form__card__content">
+        <div class="form__card__content__left">
+            <p >Lado esquerdo</p>
+        </div>        
+        
+        <div class="form__card__content__right">
+        <app-text-input label="Name" controlName="name" [formGroup]="form"/>
+        <app-text-input label="Email" controlName="email" [formGroup]="form"/>
+        <app-password-input label="Password" controlName="password" [formGroup]="form"/>
+        <app-password-input label="Confirm password" controlName="confirmPassword" [formGroup]="form"/>
+    </div> 
+      </mat-card-content>
+      <mat-card-actions class="form__card__actions">
+        <button type="submit" (click)="registerUser()" color="primary"  mat-raised-button>Salvar</button>
+      </mat-card-actions>
+    </mat-card>
+</div>
