@@ -9,7 +9,7 @@ import { User } from 'src/app/core/models/user';
 })
 export class UserService {
 
-  private baseUrl = '/api/v1/users';
+  private baseUrl = 'http://localhost:8080/api/v1/users';
 
   constructor(private http: HttpClient) { }
 

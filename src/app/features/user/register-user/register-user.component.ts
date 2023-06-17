@@ -52,9 +52,10 @@ export class RegisterUserComponent implements OnInit{
   saveUser(user:User){
     this.service.saveUser(user).subscribe({
       next: (response : any) => {
-        const userId = response.Id; 
+        const userId = response.id; 
         this.data = 'User registered!';
-        this.router.navigateByUrl(`/user/${userId}`);
+        this.router.navigateByUrl(`/${userId}`);
+        console.log(response);
       },
       error: (error : any) =>{
         console.log(error);
