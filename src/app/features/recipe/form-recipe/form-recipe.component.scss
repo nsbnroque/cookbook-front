@@ -1,4 +1,5 @@
 .form__inputs {
+     margin-top: 25px;
     display: flex;
   }
   
@@ -9,4 +10,28 @@
   .form__inputs app-text-input:last-child {
     flex: 0 0 20%;
     margin-left: 10px;
+  }
+
+  .form__steps {
+    display: flex;
+    flex-wrap: wrap;
+  
+    .step-container {
+      margin-top: 25px;
+      flex: 1 1 100%; /* Ocupa todo o espaço disponível */
+      display: flex;
+      align-items: flex-start; /* Alinha os itens ao topo */
+      gap: 10px; /* Espaçamento entre os itens */
+      margin-bottom: 10px; /* Espaçamento entre cada etapa */
+  
+      app-text-area-input {
+        flex: 1; /* Ocupa todo o espaço disponível */
+      }
+  
+      .button-container {
+        display: flex;
+        align-items: flex-start; /* Alinha os botões ao topo */
+        gap: 10px; /* Espaçamento entre os botões */
+      }
+    }
   }
