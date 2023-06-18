@@ -1,0 +1,12 @@
+.form__inputs {
+    display: flex;
+  }
+  
+  .form__inputs app-text-input:first-child {
+    flex: 1;
+  }
+  
+  .form__inputs app-text-input:last-child {
+    flex: 0 0 20%;
+    margin-left: 10px;
+  }

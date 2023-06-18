@@ -28,6 +28,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTableModule } from '@angular/material/table';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import {MatStepperModule} from '@angular/material/stepper';
 
 
 
@@ -62,7 +63,8 @@ import { MatNativeDateModule } from '@angular/material/core';
       MatSortModule,
       MatFormFieldModule,
       MatDatepickerModule,
-      MatNativeDateModule
+      MatNativeDateModule,
+      MatStepperModule
   ],
   exports: [
       MatIconModule,
@@ -94,7 +96,8 @@ import { MatNativeDateModule } from '@angular/material/core';
       MatSortModule,
       MatFormFieldModule,
       MatDatepickerModule,
-      MatNativeDateModule
+      MatNativeDateModule,
+      MatStepperModule
   ]
 })
 export class MaterialModule { }

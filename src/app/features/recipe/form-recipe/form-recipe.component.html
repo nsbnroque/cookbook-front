@@ -1,0 +1,62 @@
+<mat-card>
+<mat-toolbar color="primary" class="form__card__title">Register recipe</mat-toolbar>
+<mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="recipeForm">
+        <form [formGroup]="recipeForm">
+          <ng-template matStepLabel>Details</ng-template>
+          <app-text-input label="Name" controlName="name" [formGroup]="recipeForm" />
+          <app-number-input label="Servings" controlName="servings" [formGroup]="recipeForm" />
+          <app-number-input label="Preparation Time" controlName="preparationTime" [formGroup]="recipeForm" />
+          <app-number-input label="Cook Time" controlName="cookTime" [formGroup]="recipeForm" />
+          <app-text-input label="Image URL" controlName="image" [formGroup]="recipeForm" />
+          <div>
+
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+    <mat-step [stepControl]="recipeForm">
+                    
+              <ng-template matStepLabel>Ingredients</ng-template>
+              <div class="form__inputs" *ngFor="let ingredient of ingredients">
+                <app-text-input label="Name" controlName="name" [formGroup]="createIngredientFormGroup(ingredient)" ></app-text-input>
+                <app-text-input label="Quantity" controlName="quantity" [formGroup]="createIngredientFormGroup(ingredient)" ></app-text-input>
+                <button mat-icon-button color="primary" aria-label="Example icon button with a plus one icon" (click)="addIngredient()">
+                  <mat-icon>add_circle</mat-icon>
+                </button>
+                <button mat-icon-button color="primary" aria-label="Example icon button with a plus one icon" (click)="deleteIngredient(ingredient)">
+                    <mat-icon>remove_circle</mat-icon>
+                  </button>
+              </div>
+              <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+              </div>
+
+          
+    </mat-step>
+   
+    <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Preparation Steps</ng-template>
+        <mat-form-field>
+          <mat-label>Address</mat-label>
+          <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
+                 required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <p>You are now done.</p>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-stepper>
+</mat-card>
