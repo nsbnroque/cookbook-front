@@ -4,7 +4,7 @@ import { FormGroup, AbstractControl } from '@angular/forms';
 @Component({
   selector: 'app-password-input',
   templateUrl: './password-input.component.html',
-  styleUrls: ['./password-input.component.sass']
+  styleUrls: ['./password-input.component.scss']
 })
 export class PasswordInputComponent {
   @Input() label!: string;

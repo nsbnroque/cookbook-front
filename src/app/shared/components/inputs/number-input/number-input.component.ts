@@ -4,7 +4,7 @@ import { FormGroup, AbstractControl } from '@angular/forms';
 @Component({
   selector: 'app-number-input',
   templateUrl: './number-input.component.html',
-  styleUrls: ['./number-input.component.sass']
+  styleUrls: ['./number-input.component.scss']
 })
 export class NumberInputComponent {
   @Input() placeholder!: string;

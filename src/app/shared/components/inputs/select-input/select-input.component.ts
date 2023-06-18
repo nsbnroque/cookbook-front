@@ -4,7 +4,7 @@ import { FormGroup, AbstractControl } from '@angular/forms';
 @Component({
   selector: 'app-select-input',
   templateUrl: './select-input.component.html',
-  styleUrls: ['./select-input.component.sass']
+  styleUrls: ['./select-input.component.scss']
 })
 export class SelectInputComponent {
   @Input() label!: string;

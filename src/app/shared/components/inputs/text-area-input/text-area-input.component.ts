@@ -4,7 +4,7 @@ import { FormGroup, AbstractControl } from '@angular/forms';
 @Component({
   selector: 'app-text-area-input',
   templateUrl: './text-area-input.component.html',
-  styleUrls: ['./text-area-input.component.sass']
+  styleUrls: ['./text-area-input.component.scss']
 })
 export class TextAreaInputComponent {
   @Input() label!: string;

@@ -9,7 +9,7 @@ import { InputValidatorService } from 'src/app/shared/validators/input-validator
 @Component({
   selector: 'app-register-user',
   templateUrl: './register-user.component.html',
-  styleUrls: ['./register-user.component.sass']
+  styleUrls: ['./register-user.component.scss']
 })
 export class RegisterUserComponent implements OnInit{
   
