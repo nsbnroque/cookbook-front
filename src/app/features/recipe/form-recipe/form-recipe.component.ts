@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Validators, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Validators, FormBuilder, FormControl, FormGroup, FormArray } from '@angular/forms';
 import { Ingredient } from 'src/app/core/models/ingredient';
 
 @Component({
@@ -7,22 +7,22 @@ import { Ingredient } from 'src/app/core/models/ingredient';
   templateUrl: './form-recipe.component.html',
   styleUrls: ['./form-recipe.component.scss']
 })
-export class FormRecipeComponent implements OnInit{
-  ingredients: Ingredient[] = [];
-  steps: any[] =[];
+export class FormRecipeComponent implements OnInit {
+  steps: any[] = [];
+  ingredients!: FormArray;
+  directions!: FormArray;
   recipeForm!: FormGroup;
-  directionsForm!: FormGroup;
-  ingredientForm!: FormGroup;
 
   isLinear = false;
 
   constructor(private builder: FormBuilder) {}
 
   ngOnInit(): void {
+    
+    this.initRecipeForm();
     this.addIngredient();
     this.addStep();
-    this.initRecipeForm();
-    
+    this.addDirection();
   }
 
   initRecipeForm(): void {
@@ -30,49 +30,60 @@ export class FormRecipeComponent implements OnInit{
       Id: [null],
       name: ['', Validators.required],
       image: [''],
-      preparationTime: ['', [Validators.pattern(/^\d+$/)]],
-      cookTime: ['', [ Validators.pattern(/^\d+$/)]],
-      totalTime: ['', [ Validators.pattern(/^\d+$/)]],
-      servings: ['', [Validators.pattern(/^\d+$/)]],
+      preparationTime: [''],
+      cookTime: [''],
+      totalTime: [''],
+      servings: [''],
       directions: this.builder.array([]),
-      ingredients: this.builder.array([]),
+      ingredients: this.builder.array([
+        this.createIngredientFormGroup()
+      ]),
       author: this.builder.group({
         // Define os campos do autor aqui
       })
     });
 
-    this.directionsForm = this.builder.group({
-      step: ['']
-    });
+    this.ingredients = this.recipeForm.get('ingredients') as FormArray;
+    this.directions = this.recipeForm.get('directions') as FormArray;
+  }
 
-    this.ingredientForm = this.builder.group({
+  get ingredientsArray(): FormArray {
+    return this.recipeForm.get('ingredients') as FormArray;
+  }
+
+  accessFormGroup(index: number) : FormGroup {
+    const ingredientGroup = this.ingredients.at(index) as FormGroup;
+    return ingredientGroup;
+  }
+
+  createIngredientFormGroup(): FormGroup {
+    return this.builder.group({
       Id: [null],
       name: [''],
-      quantity:['']
+      quantity: ['']
     });
   }
 
-  // createIngredientFormGroup(ingredient: Ingredient): FormGroup {
-  //   return new FormGroup({
-  //     name: new FormControl(ingredient.name),
-  //     quantity: new FormControl(ingredient.quantity)
-  //   });
-  // }
-
-  // createDirectionsFormGroup(step : String): FormGroup {
-  //   return new FormGroup({
-  //     step: new FormControl(step),
-
-  //   });
-  // }
+  createDirectionFormGroup(step: string): FormGroup {
+    return this.builder.group({
+      step: [step]
+    });
+  }
 
   addIngredient() {
-    const newIngredient: Ingredient = {
-      Id: 0,
-      name: '',
-      quantity: ''
-    };
-    this.ingredients.push(newIngredient);
+    this.ingredients.push(this.createIngredientFormGroup());
+  }
+
+  addDirection() {
+    this.directions.push(this.createDirectionFormGroup(''));
+  }
+
+  deleteIngredient(index: number) {
+    this.ingredients.removeAt(index);
+  }
+
+  deleteDirection(index: number) {
+    this.directions.removeAt(index);
   }
 
   addStep() {
@@ -82,25 +93,16 @@ export class FormRecipeComponent implements OnInit{
     this.steps.push(newStep);
   }
 
-  deleteIngredient(ingredient: Ingredient) {
-    if (this.ingredients.length > 1){
-      const index = this.ingredients.indexOf(ingredient);
-    if (index !== -1) {
-      this.ingredients.splice(index, 1);
-    }
-    return;
-    }
-    
-  }
-
-  removeStep(step : any) {
-    if (this.steps.length > 1){
-      const index = this.steps.indexOf(step);
-    if (index !== -1) {
+  removeStep(index: number) {
+    if (this.steps.length > 1) {
       this.steps.splice(index, 1);
     }
-    return;
-    }
-    
   }
+
+  save() {
+    console.log(this.steps);
+    console.log(this.recipeForm.getRawValue());
+  }
+
 }
+
