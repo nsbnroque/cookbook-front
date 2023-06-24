@@ -1,0 +1,47 @@
+.sidebar {
+    width: 200px;
+    padding: 20px;
+    height: 100%;
+  }
+  
+  .sidebar__subtitle {
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin: 20px;
+    font-size: 1rem;
+    color: #3D8361;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    margin-bottom: 10px;
+  }
+  
+  button,
+  a {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 8px;
+    border: none;
+    background-color: transparent;
+    color: #333;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover,
+  a:hover {
+    background-color: #ccc;
+  }
+  
+  button.active,
+  a.active {
+    background-color: #007bff; /* Substitua pelo valor da cor primária da sua aplicação */
+    color: #fff;
+  }
+  

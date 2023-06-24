@@ -1,0 +1,61 @@
+@use './src/styles.scss' as styles;
+
+header {
+    display: flex;
+    height: 100px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background-color: #fff; 
+    color: map-get(styles.$primary-palette,900);
+  }
+  
+  .header__logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .header__icon {
+    font-size: 24px;
+    margin-right: 8px;
+    color: map-get(styles.$primary-palette,500);/* Cor dos ícones */
+  }
+  
+  .header__title {
+    font-size: 24px;
+    font-weight: bold;
+    color: map-get(styles.$primary-palette,500);/* Cor do texto */
+  }
+  
+  .header__nav {
+    display: flex;
+    gap: 16px;
+  }
+  
+  .header__link {
+    text-decoration: none;
+    color: map-get(styles.$primary-palette,500); /* Cor dos links */
+    font-weight: bold;
+    transition: transform 0.3s ease-in-out; /* Animação */
+  }
+  
+  .header__link:hover {
+    transform: translateY(-5px); /* Efeito de subir 5px */
+  }
+  
+  .header__user {
+    display: flex;
+    align-items: center;
+  }
+  
+  .header__user-icon {
+    font-size: 24px;
+    margin-right: 8px;
+    color: map-get(styles.$primary-palette,500);/* Cor do ícone do usuário */
+  }
+  
+  .header__user-name {
+    font-weight: bold;
+    color: map-get(styles.$primary-palette,500);/* Cor do nome do usuário */
+  }
+  

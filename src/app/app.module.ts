@@ -8,6 +8,7 @@ import { MaterialModule } from './shared/material/material.module';
 import { CoreModule } from './core/core.module';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { ComponentsModule } from './core/components/components.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { RouterModule } from '@angular/router';
     MaterialModule,
     CoreModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    ComponentsModule
     
   ],
   providers: [],

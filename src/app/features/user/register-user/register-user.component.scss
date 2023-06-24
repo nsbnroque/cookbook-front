@@ -1,11 +1,18 @@
+@use './src/styles.scss' as styles;
+
+
 .form__card {
-    padding: 50px;
-    display: absolute;
-    width: 50%;
-    margin: auto;
-    backdrop-filter: blur(10px);
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: 4px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 50px;
+  width: 50%;
+  backdrop-filter: blur(10px);
+  background: styles.$custom-white;
+  color: map-get(styles.$primary-palette, 500);
+  border-radius: 8px;
+  
   
     &__title {
       margin-bottom: 25px;

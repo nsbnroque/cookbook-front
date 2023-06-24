@@ -1,5 +1,11 @@
 @use '@angular/material' as mat;
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .full-width {
   width: 100%;
 }
@@ -13,30 +19,63 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 @include mat.core();
 
-$green-hortela: (
-  50: #e4f1e5,
-  100: #c7e6c9,
-  200: #aedeb0,
-  300: #95d496,
-  400: #7dc77e,
-  500: #63BA65,
-  600: #5aa75c,
-  700: #519552,
-  800: #488248,
-  900: #3f6f3e,
-  A100: #baffb5,
-  A200: #a1ffa2,
-  A400: #88ff8e,
-  A700: #6eff7b,
+$accent-palette: (
+  50: #fef4f4,
+  100: #fed7d7,
+  200: #febab9,
+  300: #fe9d9c,
+  400: #fe8080,
+  500: #FEA1A1,
+  600: #fe7e7e,
+  700: #fe5b5c,
+  800: #fe3839,
+  900: #fe1516,
+  A100: #ffffff,
+  A200: #ffbebe,
+  A400: #ff8c8c,
+  A700: #ff7373,
   contrast: (
     50: #000000,
     100: #000000,
     200: #000000,
     300: #000000,
     400: #000000,
-    500: #ffffff,
+    500: #000000,
     600: #ffffff,
     700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #ffffff,
+  )
+);
+
+$primary-palette: (
+  50: #EEF2E6,
+  100: #ffebe1,
+  200: #D6CDA4,
+  300: #ffd7b8,
+  400: #ffceaa,
+  500: #3D8361,
+  600: #e3c5ab,
+  700: #dacda2,
+  800: #d2c499,
+  900: #1C6758,
+  A100: #ffffff,
+  A200: #ffe8df,
+  A400: #ffbfb0,
+  A700: #ffab9a,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #000000,
     800: #ffffff,
     900: #ffffff,
     A100: #000000,
@@ -46,13 +85,47 @@ $green-hortela: (
   )
 );
 
+
+$red: (
+  50: #fbeae9,
+  100: #f7c6c2,
+  200: #f49f99,
+  300: #f17771,
+  400: #ee5049,
+  500: #eb2822,
+  600: #d0231e,
+  700: #ae1c19,
+  800: #8c1615,
+  900: #69100f,
+  A100: #ffdddc,
+  A200: #ffaaaa,
+  A400: #ff7777,
+  A700: #ff5555,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #ffffff,
+    A700: #ffffff,
+  )
+);
+
 // Configurar a paleta de cores
 
-$my-primary: mat.define-palette($green-hortela, 700);
-$my-accent: mat.define-palette($green-hortela, A700, A100, A400);
+$my-primary: mat.define-palette($primary-palette,500);
+$my-accent: mat.define-palette($accent-palette, A700, A100, 400);
 
 // The "warn" palette is optional and defaults to red if not specified.
-$my-warn: mat.define-palette(mat.$red-palette);
+$my-warn: mat.define-palette($red,800);
 
 $my-theme: mat.define-light-theme((
  color: (
@@ -107,6 +180,7 @@ $green-hortela-dark: (
   )
 );
 
+$custom-white: #EEF2E6;
 $dark-primary: mat.define-palette($green-hortela-dark, 500);
 $dark-accent: mat.define-palette($green-hortela-dark, A700, A100, A400);
 
@@ -116,6 +190,7 @@ $dark-theme: mat.define-dark-theme((
    primary: $dark-primary,
    accent: $dark-accent,
    warn: $my-warn,
+
  ),
  typography: mat.define-typography-config(),
  density: 0,
